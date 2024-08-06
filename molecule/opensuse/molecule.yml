@@ -5,21 +5,25 @@ dependency:
 driver:
   name: docker
 
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
-  flake8
+lint:
+  name: yamllint
 
 platforms:
   - name: ansible_role_git_user_opensuse
-    image: opensuse/leap:15.3
+    image: opensuse/leap:15.0
 
 provisioner:
   name: ansible
   playbooks:
-    converge: ../default/converge.yml
+    converge: ../default/playbook.yml
+  lint:
+    name: ansible-lint
+
+scenario:
+  name: opensuse
 
 verifier:
   name: testinfra
   directory: ../default/tests
+  lint:
+    name: flake8

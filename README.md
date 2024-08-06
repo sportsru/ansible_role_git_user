@@ -1,7 +1,7 @@
 Ansible Role: Git User
 ======================
 
-[![Tests](https://github.com/gantsign/ansible_role_git_user/workflows/Tests/badge.svg)](https://github.com/gantsign/ansible_role_git_user/actions?query=workflow%3ATests)
+[![Build Status](https://travis-ci.com/gantsign/ansible_role_git_user.svg?branch=master)](https://travis-ci.com/gantsign/ansible_role_git_user)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.git__user-blue.svg)](https://galaxy.ansible.com/gantsign/git_user)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible_role_git_user/master/LICENSE)
 
@@ -10,7 +10,7 @@ Role to configure the username and email address for users of Git.
 Requirements
 ------------
 
-* Ansible >= 2.9
+* Ansible >= 2.4
 
 * Linux Distribution
 
@@ -18,32 +18,34 @@ Requirements
 
         * Debian
 
+            * Jessie (8)
             * Stretch (9)
-            * Buster (10)
-            * Bullseye (11)
 
         * Ubuntu
 
+            * Trusty (14.04)
+            * Xenial (16.04)
             * Bionic (18.04)
-            * Focal (20.04)
 
     * RedHat Family
 
-        * Rocky Linux
+        * CentOS
 
-            * 8
+            * 7
 
         * Fedora
 
-            * 35
+            * 28
 
     * SUSE Family
 
         * openSUSE
 
-            * 15.3
+            * 15.0
 
     * Note: other versions are likely to work but have not been tested.
+
+* Docker (already installed)
 
 Role Variables
 --------------

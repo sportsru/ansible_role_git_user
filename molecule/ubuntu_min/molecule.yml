@@ -5,20 +5,19 @@ dependency:
 driver:
   name: docker
 
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
-  flake8
+lint:
+  name: yamllint
 
 platforms:
   - name: ansible_role_git_user_ubuntu_min
-    image: ubuntu:18.04
+    image: ubuntu:14.04
 
 provisioner:
   name: ansible
   playbooks:
-    converge: ../default/converge.yml
+    converge: ../default/playbook.yml
+  lint:
+    name: ansible-lint
 
 scenario:
   name: ubuntu_min
@@ -26,3 +25,5 @@ scenario:
 verifier:
   name: testinfra
   directory: ../default/tests
+  lint:
+    name: flake8

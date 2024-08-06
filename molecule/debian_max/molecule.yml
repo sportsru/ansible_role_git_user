@@ -5,20 +5,19 @@ dependency:
 driver:
   name: docker
 
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
-  flake8
+lint:
+  name: yamllint
 
 platforms:
   - name: ansible_role_git_user_debian_max
-    image: debian:11
+    image: debian:9
 
 provisioner:
   name: ansible
   playbooks:
-    converge: ../default/converge.yml
+    converge: ../default/playbook.yml
+  lint:
+    name: ansible-lint
 
 scenario:
   name: debian_max
@@ -26,3 +25,5 @@ scenario:
 verifier:
   name: testinfra
   directory: ../default/tests
+  lint:
+    name: flake8

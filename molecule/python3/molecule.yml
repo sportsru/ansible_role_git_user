@@ -9,8 +9,8 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible_role_git_user_fedora
-    image: fedora:28
+  - name: ansible_role_git_user_python3
+    image: ubuntu:18.04
 
 provisioner:
   name: ansible
@@ -20,7 +20,7 @@ provisioner:
     name: ansible-lint
 
 scenario:
-  name: fedora
+  name: python3
 
 verifier:
   name: testinfra
